@@ -1,156 +1,110 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-  <head>
+<head>
     <title>internet hotspot > login</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="pragma" content="no-cache" />
     <meta http-equiv="expires" content="-1" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
-    />
-    <!-- <style type="text/css">
-      body {
-        color: #737373;
-        font-size: 10px;
-        font-family: verdana;
-      }
-
-      textarea,
-      input,
-      select {
-        background-color: #fdfbfb;
-        border: 1px solid #bbbbbb;
-        padding: 2px;
-        margin: 1px;
-        font-size: 14px;
-        color: #808080;
-      }
-
-      a,
-      a:link,
-      a:visited,
-      a:active {
-        color: #aaaaaa;
-        text-decoration: none;
-        font-size: 10px;
-      }
-      a:hover {
-        border-bottom: 1px dotted #c1c1c1;
-        color: #aaaaaa;
-      }
-      img {
-        border: none;
-      }
-      td {
-        font-size: 14px;
-        color: #7a7a7a;
-      }
-    </style> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-
-  <body class="bg-blue-200 w-full flex flex-col justify-center items-center p-8">
-    <!-- $(if chap-id) -->
+    <style>
+        #homeContent, #loginContent {
+            width: 100%; /* Atau ukuran lebar yang Anda inginkan */
+            box-sizing: border-box; /* Untuk memasukkan padding dan border dalam ukuran elemen */
+        }
+    </style>
+</head>
+<body class="bg-blue-200 w-full flex flex-col justify-center items-center p-8">
     <form name="sendin" action="$(link-login-only)" method="post">
-      <input type="hidden" name="username" />
-      <input type="hidden" name="password" />
-      <input type="hidden" name="dst" value="$(link-orig)" />
-      <input type="hidden" name="popup" value="true" />
+        <input type="hidden" name="username" />
+        <input type="hidden" name="password" />
+        <input type="hidden" name="dst" value="$(link-orig)" />
+        <input type="hidden" name="popup" value="true" />
     </form>
 
     <script type="text/javascript" src="/md5.js"></script>
 
     <script type="text/javascript">
-      
-      function doLogin() {
-        document.sendin.username.value = document.login.username.value;
-        document.sendin.password.value = hexMD5(
-          "$(chap-id)" + document.login.password.value + "$(chap-challenge)"
-        );
-        document.sendin.submit();
-        return false;
-      }
+        function doLogin() {
+            document.sendin.username.value = document.login.username.value;
+            document.sendin.password.value = hexMD5("$(chap-id)" + document.login.password.value + "$(chap-challenge)");
+            document.sendin.submit();
+            return false;
+        }
     </script>
-    <!-- $(endif) -->
 
-    <!-- <div align="center">
-      <a href="$(link-login-only)?target=lv&amp;dst=$(link-orig-esc)"
-        >Latviski</a
-      >
-    </div> -->
+    <div class="notice flex flex-col justify-center items-center" style="color: #c1c1c1; font-size: 9px">
+        <img src="img/TPI-Logo.png" class="w-16" />
+        <h1 class="text-xl text-black">PEMERINTAH KOTA TANJUNGPINANG</h1>
+    </div>
 
-    <table>
-      <tr>
-        <td align="center" valign="middle">
-          <div class="notice" style="color: #c1c1c1; font-size: 9px">
-            <!-- Please log on to use the internet hotspot service<br />$(if trial ==
-            'yes')Free trial available, -->
-            <img src="img/TPI-Logo.png" class="w-20" />
-            <h1 class="text-xl text-black">PEMERINTAH KOTA TANJUNGPINANG</h1>
-            <a
-              style="color: #ff8080"
-              href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"
-              >click here</a
-            >
-            <!-- .$(endif) -->
-          </div>
-          <br />
-          <body id="Card" class="bg-green-300 max-h-10">
-            <div id="Card" class="bg-green-300 rounded-lg shadow-md w-80">
-              <div class="flex justify-center mb-4 bg-red-300">
-                <button id="homeBtn" class="w-full bg-blue-500 text-white px-4 py-2 hover:bg-blue-600">Home</button>
-                <button id="loginBtn" class="w-full bg-blue-500 text-white px-4 py-2 hover:bg-blue-600">Login</button>
-              </div>
-              
-              <div id="homeContent" class="hidden">
-                <img src="img/TPI-Logo.png" alt="Home Image" class="box-fit">
-              </div>
-              
-              <div id="loginContent">
-                <form name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif) class="space-y-4 px-4">
-                  <input type="hidden" name="dst" value="$(link-orig)" />
-                  <input type="hidden" name="popup" value="true" />
-                  
-                  <div>
+    <div id="Card" class="bg-green-300 rounded-lg shadow-md w-80 mt-4">
+        <div class="flex justify-center mb-4 bg-red-300">
+            <button id="homeBtn" class="w-full bg-blue-500 text-white px-4 py-2 hover:bg-blue-600">Home</button>
+            <button id="loginBtn" class="w-full bg-blue-500 text-white px-4 py-2 hover:bg-blue-600">Login</button>
+        </div>
+
+        <div id="homeContent" class="flex flex-col justify-center items-center">
+            <img src="img/TPI-Logo.png" alt="Home Image" class="box-fit" />
+            <a style="color: #ff8080" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">click here</a>
+        </div>
+
+        <div id="loginContent" class="hidden flex flex-col justify-center items-center">
+            <form name="login" action="$(link-login-only)" method="post" onSubmit="return doLogin()" class="space-y-4">
+                <input type="hidden" name="dst" value="$(link-orig)" />
+                <input type="hidden" name="popup" value="true" />
+
+                <div>
                     <label for="username" class="block text-sm font-medium text-gray-700">Login</label>
-                    <input id="username" name="username" type="text" value="" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
-                  </div>
-                  
-                  <div>
-                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                    <input id="password" name="password" type="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
-                  </div>
-                  
-                  <div>
-                    <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                      Login
-                    </button>
-                  </div>
-            </form>
-                <div style="color: #ff8080" class="text-md">$(error)</div>
-              </div>
-            </div>
-            
-            <script>
-              const homeBtn = document.getElementById('homeBtn');
-              const loginBtn = document.getElementById('loginBtn');
-              const homeContent = document.getElementById('homeContent');
-              const loginContent = document.getElementById('loginContent');
-            
-              homeBtn.addEventListener('click', () => {
-                homeContent.classList.remove('hidden');
-                loginContent.classList.add('hidden');
-              });
-            
-              loginBtn.addEventListener('click', () => {
-                homeContent.classList.add('hidden');
-                loginContent.classList.remove('hidden');
-              });
-            </script>
+                    <input id="username" name="username" type="text" value="" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" />
+                </div>
 
-    <script type="text/javascript">
-      document.login.username.focus();
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input id="password" name="password" type="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" />
+                </div>
+
+                <div>
+                    <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        Login
+                    </button>
+                </div>
+            </form>
+            <div style="color: #ff8080" class="text-md">$(error)</div>
+        </div>
+    </div>
+
+    <script>
+        const homeBtn = document.getElementById("homeBtn");
+        const loginBtn = document.getElementById("loginBtn");
+        const homeContent = document.getElementById("homeContent");
+        const loginContent = document.getElementById("loginContent");
+
+        function adjustHeight() {
+            const homeHeight = homeContent.offsetHeight;
+            const loginHeight = loginContent.offsetHeight;
+            const maxHeight = Math.max(homeHeight, loginHeight);
+
+            homeContent.style.height = `${maxHeight}px`;
+            loginContent.style.height = `${maxHeight}px`;
+        }
+
+        homeBtn.addEventListener("click", () => {
+            homeContent.classList.remove("hidden");
+            loginContent.classList.add("hidden");
+            adjustHeight();
+        });
+
+        loginBtn.addEventListener("click", () => {
+            homeContent.classList.add("hidden");
+            loginContent.classList.remove("hidden");
+            adjustHeight();
+        });
+
+        window.addEventListener("load", adjustHeight);
+        window.addEventListener("resize", adjustHeight);
+
+        document.login.username.focus();
     </script>
-    </body>
+</body>
 </html>
