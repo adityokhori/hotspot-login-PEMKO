@@ -7,14 +7,9 @@
     <meta http-equiv="expires" content="-1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        #homeContent, #loginContent {
-            width: 100%; /* Atau ukuran lebar yang Anda inginkan */
-            box-sizing: border-box; /* Untuk memasukkan padding dan border dalam ukuran elemen */
-        }
-    </style>
 </head>
-<body class="bg-blue-200 w-full flex flex-col justify-center items-center p-8">
+
+<body class="bg-gray-400 w-full flex flex-col justify-center items-center p-8">
     <form name="sendin" action="$(link-login-only)" method="post">
         <input type="hidden" name="username" />
         <input type="hidden" name="password" />
@@ -35,33 +30,34 @@
 
     <div class="notice flex flex-col justify-center items-center" style="color: #c1c1c1; font-size: 9px">
         <img src="img/TPI-Logo.png" class="w-16" />
-        <h1 class="text-xl text-black">PEMERINTAH KOTA TANJUNGPINANG</h1>
+        <h1 class="text-white text-xl text-black font-bold">PEMERINTAH KOTA TANJUNGPINANG</h1>
     </div>
 
-    <div id="Card" class="bg-green-300 rounded-lg shadow-md w-80 mt-4">
+    <div id="Card" class="bg-white shadow-md w-80 mt-4">
         <div class="flex justify-center mb-4 bg-red-300">
-            <button id="homeBtn" class="w-full bg-blue-500 text-white px-4 py-2 hover:bg-blue-600">Home</button>
+            <button id="homeBtn" class="w-full bg-blue-500 text-white px-4 py-2 hover:bg-blue-600 ">Home</button>
             <button id="loginBtn" class="w-full bg-blue-500 text-white px-4 py-2 hover:bg-blue-600">Login</button>
         </div>
 
         <div id="homeContent" class="flex flex-col justify-center items-center">
             <img src="img/TPI-Logo.png" alt="Home Image" class="box-fit" />
-            <a style="color: #ff8080" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">click here</a>
+            <!-- <a style="color: #ff8080" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">click here</a> -->
+            <a class="text-blue-500 font-semibold hover:bg-gray-200 px-2 hover:underline" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">Lanjutkan</a>
         </div>
 
-        <div id="loginContent" class="hidden flex flex-col justify-center items-center">
+        <div id="loginContent" class="hidden flex flex-col justify-center px-8">
             <form name="login" action="$(link-login-only)" method="post" onSubmit="return doLogin()" class="space-y-4">
                 <input type="hidden" name="dst" value="$(link-orig)" />
                 <input type="hidden" name="popup" value="true" />
 
-                <div>
+                <div >
                     <label for="username" class="block text-sm font-medium text-gray-700">Login</label>
-                    <input id="username" name="username" type="text" value="" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" />
+                    <input id="username" name="username" type="text" value="" class=" mt-1 block w-full rounded-md border-gray-300 shadow-md focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" />
                 </div>
 
                 <div>
                     <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                    <input id="password" name="password" type="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" />
+                    <input id="password" name="password" type="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-md focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" />
                 </div>
 
                 <div>
@@ -72,6 +68,11 @@
             </form>
             <div style="color: #ff8080" class="text-md">$(error)</div>
         </div>
+
+    </div>
+    <div class="flex flex-col justify-center items-center pt-2">
+        <img src="img/diskominfo_kota.png" class="w-1/4"/>
+        <p class="text-xs text-white">Copyrights© Mahasiswa Magang UMRAH 2024</p>
     </div>
 
     <script>
