@@ -5,8 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <meta http-equiv="pragma" content="no-cache" />
     <meta http-equiv="expires" content="-1" />
-    <!-- <style type="text/css">
-      textarea,
+    <style type="text/css">
+      /* textarea,
       input,
       select {
         background-color: #fdfbfb;
@@ -15,14 +15,17 @@
         margin: 1px;
         font-size: 14px;
         color: #808080;
-      }
+      } */
 
       body {
-        color: #737373;
-        font-size: 12px;
-        font-family: verdana;
+        background-image: url(img/laman-bunda.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        backdrop-filter: brightness(30%);
       }
-
+      /* 
       a,
       a:link,
       a:visited,
@@ -41,8 +44,8 @@
       td {
         font-size: 12px;
         color: #7a7a7a;
-      }
-    </style> -->
+      } */
+    </style>
     <!-- <script language="JavaScript">
       function startClock() {
         open(
@@ -54,14 +57,20 @@
       }
     </script> -->
     <script src="https://cdn.tailwindcss.com"></script>
-
   </head>
-  <body onLoad="startClock()" class="bg-red-300">
+  <body onLoad="startClock()" class="bg-gray-500">
     <table class="min-h-screen text-center flex justify-center items-center">
       <tr>
-        <td class="bg-white rounded-md p-8">
-          <h1 class="text-lg">You are logged in</h1>
-          <h2>If nothing happens, click <a href="$(link-redirect)" class="text-blue-400 hover:underline hover:text-blue-500">here</a></h2>
+        <td class="rounded-md p-8">
+          <h1 class="text-lg text-white">You are logged in </h1>
+          <h2 class="text-white">
+            If nothing happens, click
+            <a
+              href="$(link-redirect)"
+              class="text-blue-400 hover:underline hover:text-blue-500"
+              >here</a
+            >
+          </h2>
         </td>
       </tr>
     </table>

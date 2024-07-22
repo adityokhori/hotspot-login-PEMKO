@@ -29,9 +29,17 @@
       font-weight: bold;
       text-decoration: none;
     }
+    body{
+      background-image: url(img/laman-bunda.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      backdrop-filter: brightness(30%);
+    }
   </style>
 </head>
-<body class="bg-gray-500 w-full flex flex-col justify-center items-center min-h-screen">
+<body class="w-full flex flex-col justify-center items-center min-h-screen">
   <form name="sendin" action="$(link-login-only)" method="post">
     <input type="hidden" name="username" />
     <input type="hidden" name="password" />
