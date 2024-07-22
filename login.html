@@ -45,7 +45,7 @@
       }
     </style>
   </head>
-  <body class="w-full flex flex-col justify-between items-center min-h-screen">
+  <body class="w-full flex flex-col justify-center items-center min-h-screen">
     <form name="sendin" action="$(link-login-only)" method="post">
       <input type="hidden" name="username" />
       <input type="hidden" name="password" />
@@ -63,7 +63,7 @@
         return false;
       }
     </script>
-    <div class="notice flex flex-col justify-center items-center pb-2">
+    <div class="notice flex flex-col justify-center items-center py-1.5">
       <img src="img/TPI-Logo.png" class="w-8" />
       <h1 class="text-white text-lg text-black font-bold">PEMERINTAH KOTA</h1>
       <h1 class="text-white text-lg text-black font-bold">TANJUNGPINANG</h1>
@@ -72,13 +72,13 @@
       <div class="flex justify-center pb-2 space-x-2">
         <button
           id="homeBtn"
-          class="w-full bg-blue-500 text-white px-4 py-2 hover:bg-blue-600 rounded-md"
+          class="w-full bg-blue-600 text-white px-4 py-2 hover:bg-blue-700 rounded-md"
         >
           Home
         </button>
         <button
           id="loginBtn"
-          class="w-full bg-blue-500 text-white px-4 py-2 hover:bg-blue-600 rounded-md"
+          class="w-full bg-blue-600 text-white px-4 py-2 hover:bg-blue-700 rounded-md"
         >
           Login
         </button>
@@ -116,7 +116,7 @@
         >
           <a
             href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)"
-            class="text-white font-bold hover:underline"
+            class="text-white text-opacity-80 font-bold hover:underline"
             >Lanjutkan</a
           >
         </div>
@@ -169,7 +169,7 @@
         <div class="text-md text-red-500 font-semibold pt-2">$(error)/div>
       </div>
     </div>
-    <div class="flex flex-col justify-center items-center pt-4">
+    <div class="flex flex-col justify-center items-center py-2">
       <img src="img/diskominfo_kota.png" class="w-40" />
       <p class="text-xs text-white">Copyright © by</p>
       <p class="text-xs text-white">Mahasiswa Kerja Praktik UMRAH 2024</p>
