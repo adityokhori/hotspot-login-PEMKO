@@ -8,6 +8,7 @@
     <meta http-equiv="pragma" content="no-cache" />
     <meta http-equiv="expires" content="-1" />
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style type="text/css">
       textarea,
       input,
@@ -16,7 +17,6 @@
         border: 1px #bbbbbb solid;
         padding: 2px;
         margin: 1px;
-        font-size: 14px;
         color: #808080;
       }
 
@@ -26,7 +26,6 @@
         border-color: #c1c1c1;
         background-color: transparent;
         font-family: verdana;
-        font-size: 11px;
       }
 
       body {
@@ -54,6 +53,7 @@
         color: #aaaaaa;
       }
     </style>
+
     <!-- <script language="JavaScript">
 
 $(if advert-pending == 'yes')
@@ -75,7 +75,7 @@ $(endif)
 
 </script> -->
   </head>
-  <body onLoad="openAdvert()" class="text-white">
+  <body onLoad="openAdvert()" class="text-white ">
     <!-- $(if advert-pending == 'yes')$(endif) -->
     <table width="100%" height="100%">
       <tr>
@@ -86,12 +86,12 @@ $(endif)
             onSubmit="return openLogout()"
           >
             <table border="1" class="tabula">
-              $(if login-by == 'trial')
+              <!-- $(if login-by == 'trial') -->
               <div style="text-align: center">Welcome trial user!</div>
-              $(elif login-by != 'mac')
+              <!-- $(elif login-by != 'mac') -->
               <div style="text-align: center">Welcome $(username)!</div>
               <br />
-              $(endif)
+              <!-- $(endif) -->
               <tr>
                 <td align="right">IP address:</td>
                 <td>$(ip)</td>
@@ -100,17 +100,17 @@ $(endif)
                 <td align="right">bytes up/down:</td>
                 <td>$(bytes-in-nice) / $(bytes-out-nice)</td>
               </tr>
-              $(if session-time-left)
+              <!-- $(if session-time-left) -->
               <tr>
                 <td align="right">connected / left:</td>
                 <td>$(uptime) / $(session-time-left)</td>
               </tr>
-              $(else)
+              <!-- $(else) -->
               <tr>
                 <td align="right">connected:</td>
                 <td>$(uptime)</td>
               </tr>
-              $(endif) $(if blocked == 'yes')
+              <!-- $(endif) $(if blocked == 'yes') -->
               <tr>
                 <td align="right">status:</td>
                 <td>
@@ -121,23 +121,25 @@ $(endif)
                     required
                   </div>
                 </td>
-                $(elif refresh-timeout)
+                <!-- $(elif refresh-timeout) -->
               </tr>
 
               <tr>
                 <td align="right">status refresh:</td>
                 <td>$(refresh-timeout)</td>
-                $(endif)
+                <!-- $(endif) -->
               </tr>
             </table>
 
-            $(if login-by-mac != 'yes')
+            <!-- $(if login-by-mac != 'yes') -->
             <br />
             <!-- user manager link. if user manager resides on other router, replace $(hostname) by its address
 <button onclick="document.location='http://$(hostname)/user?subs='; return false;">status</button>
  end of user manager link -->
-            <input type="submit" value="log off" />
-            $(endif)
+            <!-- <input type="submit" value="log off" /> -->
+            <button type="submit" class="bg-gray-500 bg-opacity-50 hover:bg-blue-500 px-4 py-2 rounded-md">Log off</button>
+
+            <!-- $(endif) -->
           </form>
         </td>
       </tr>
