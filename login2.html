@@ -28,6 +28,8 @@
       }
       .swiper-slide img {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
       .overlay-button {
         position: absolute;
@@ -91,28 +93,28 @@
         </button>
       </div>
 
-      <div id="homeContent" class="flex flex-col justify-center items-center">
-        <div class="swiper-container w-72 relative">
+      <div
+        id="homeContent"
+        class="flex flex-col justify-center items-center w-72 h-80"
+      >
+        <div class="swiper-container w-full h-full relative">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <img
                 src="https://picsum.photos/seed/picsum13/200/250"
                 alt="Slide Image 1"
-                class="box-fit w-full"
               />
             </div>
             <div class="swiper-slide">
               <img
                 src="https://picsum.photos/seed/picsum6/200/250"
                 alt="Slide Image 2"
-                class="box-fit w-full"
               />
             </div>
             <div class="swiper-slide">
               <img
                 src="https://picsum.photos/seed/picsum9/200/250"
                 alt="Slide Image 3"
-                class="box-fit w-full"
               />
             </div>
           </div>
@@ -127,9 +129,9 @@
           </div>
         </div>
       </div>
-    <div
+      <div
         id="loginContent"
-        class="hidden flex flex-col justify-center w-72 p-4 bg-white bg-opacity-10"
+        class="hidden flex flex-col justify-center w-72 h-80 p-4 bg-white bg-opacity-10"
       >
         <form
           name="login"
@@ -177,8 +179,8 @@
     </div>
     <div class="flex flex-col justify-center items-center py-2">
       <img src="img/diskominfo_kota.png" class="w-40" />
-      <p class="text-xs text-white">Copyright © by</p>
-      <p class="text-xs text-white">Mahasiswa Kerja Praktik UMRAH 2024</p>
+      <p class="text-xs text-gray-300">Copyright © by</p>
+      <p class="text-xs text-gray-300">Mahasiswa Kerja Praktik UMRAH 2024</p>
     </div>
 
     <script>
@@ -189,48 +191,35 @@
 
       let swiper;
 
-      function adjustHeight() {
-        const homeHeight = homeContent.offsetHeight;
-        const loginHeight = loginContent.offsetHeight;
-        const maxHeight = Math.max(homeHeight, loginHeight);
-        homeContent.style.height = `${maxHeight}px`;
-        loginContent.style.height = `${maxHeight}px`;
-      }
-
       homeBtn.addEventListener("click", () => {
         homeContent.classList.remove("hidden");
         loginContent.classList.add("hidden");
         swiper.autoplay.start();
-        adjustHeight();
       });
 
       loginBtn.addEventListener("click", () => {
         homeContent.classList.add("hidden");
         loginContent.classList.remove("hidden");
         swiper.autoplay.stop();
-        adjustHeight();
       });
 
       window.addEventListener("load", () => {
-        adjustHeight();
         swiper = new Swiper(".swiper-container", {
           loop: true,
           autoplay: {
             delay: 2000,
             disableOnInteraction: false,
           },
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
+        //   pagination: {
+        //     el: ".swiper-pagination",
+        //     clickable: true,
+        //   },
+        //   navigation: {
+        //     nextEl: ".swiper-button-next",
+        //     prevEl: ".swiper-button-prev",
+        //   },
         });
       });
-
-      window.addEventListener("resize", adjustHeight);
 
       document.login.username.focus();
     </script>
