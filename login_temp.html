@@ -28,8 +28,6 @@
       }
       .swiper-slide img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
       }
       .overlay-button {
         position: absolute;
@@ -81,40 +79,40 @@
       <div class="flex justify-center pb-2 space-x-2">
         <button
           id="homeBtn"
-          class="w-full bg-blue-500 text-white px-4 py-2 hover:bg-blue-700 rounded-md"
+          class="w-full bg-blue-600 text-white px-4 py-2 hover:bg-blue-700 rounded-md"
         >
           Home
         </button>
         <button
           id="loginBtn"
-          class="w-full bg-blue-500 text-white px-4 py-2 hover:bg-blue-700 rounded-md"
+          class="w-full bg-blue-600 text-white px-4 py-2 hover:bg-blue-700 rounded-md"
         >
           Login
         </button>
       </div>
 
-      <div
-        id="homeContent"
-        class="flex flex-col justify-center items-center w-72 h-80"
-      >
-        <div class="swiper-container w-full h-full relative">
+      <div id="homeContent" class="flex flex-col justify-center items-center">
+        <div class="swiper-container w-72 relative">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <img
                 src="https://picsum.photos/seed/picsum13/200/250"
                 alt="Slide Image 1"
+                class="box-fit w-full"
               />
             </div>
             <div class="swiper-slide">
               <img
                 src="https://picsum.photos/seed/picsum6/200/250"
                 alt="Slide Image 2"
+                class="box-fit w-full"
               />
             </div>
             <div class="swiper-slide">
               <img
                 src="https://picsum.photos/seed/picsum9/200/250"
                 alt="Slide Image 3"
+                class="box-fit w-full"
               />
             </div>
           </div>
@@ -129,9 +127,9 @@
           </div>
         </div>
       </div>
-      <div
+    <div
         id="loginContent"
-        class="hidden flex flex-col justify-center w-72 h-80 p-4 bg-white bg-opacity-10"
+        class="hidden flex flex-col justify-center w-72 p-4 bg-white bg-opacity-10"
       >
         <form
           name="login"
@@ -143,34 +141,32 @@
           <input type="hidden" name="dst" value="$(link-orig)" />
           <input type="hidden" name="popup" value="true" />
           <div>
-            <!-- <label for="username" class="block text-lg font-medium text-white"
+            <label for="username" class="block text-lg font-medium text-white"
               >Username :</label
-            > -->
+            >
             <input
               id="username"
               name="username"
-              placeholder="Username"
               type="text"
               value=""
-              class="px-2 p-2 mt-1 block w-full rounded-md border-gray-300 shadow-md focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+              class="px-2 mt-1 block w-full rounded-md border-gray-300 shadow-md focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
             />
           </div>
           <div>
-            <!-- <label for="password" class="block text-lg font-medium text-white"
+            <label for="password" class="block text-lg font-medium text-white"
               >Password :</label
-            > -->
+            >
             <input
               id="password"
               name="password"
-              placeholder="Password"
               type="password"
-              class="px-2 p-2 mt-1 block w-full rounded-md border-gray-300 shadow-md focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+              class="px-2 mt-1 block w-full rounded-md border-gray-300 shadow-md focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
             />
           </div>
           <div>
             <button
               type="submit"
-              class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
               Login
             </button>
@@ -181,8 +177,8 @@
     </div>
     <div class="flex flex-col justify-center items-center py-2">
       <img src="img/diskominfo_kota.png" class="w-40" />
-      <p class="text-xs text-gray-300">Copyright © by</p>
-      <p class="text-xs text-gray-300">Mahasiswa Kerja Praktik UMRAH 2024</p>
+      <p class="text-xs text-white">Copyright © by</p>
+      <p class="text-xs text-white">Mahasiswa Kerja Praktik UMRAH 2024</p>
     </div>
 
     <script>
@@ -193,35 +189,48 @@
 
       let swiper;
 
+      function adjustHeight() {
+        const homeHeight = homeContent.offsetHeight;
+        const loginHeight = loginContent.offsetHeight;
+        const maxHeight = Math.max(homeHeight, loginHeight);
+        homeContent.style.height = `${maxHeight}px`;
+        loginContent.style.height = `${maxHeight}px`;
+      }
+
       homeBtn.addEventListener("click", () => {
         homeContent.classList.remove("hidden");
         loginContent.classList.add("hidden");
         swiper.autoplay.start();
+        adjustHeight();
       });
 
       loginBtn.addEventListener("click", () => {
         homeContent.classList.add("hidden");
         loginContent.classList.remove("hidden");
         swiper.autoplay.stop();
+        adjustHeight();
       });
 
       window.addEventListener("load", () => {
+        adjustHeight();
         swiper = new Swiper(".swiper-container", {
           loop: true,
           autoplay: {
             delay: 2000,
             disableOnInteraction: false,
           },
-        //   pagination: {
-        //     el: ".swiper-pagination",
-        //     clickable: true,
-        //   },
-        //   navigation: {
-        //     nextEl: ".swiper-button-next",
-        //     prevEl: ".swiper-button-prev",
-        //   },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
         });
       });
+
+      window.addEventListener("resize", adjustHeight);
 
       document.login.username.focus();
     </script>
